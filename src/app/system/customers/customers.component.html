@@ -1,0 +1,15 @@
+<h2>Customers</h2>
+<div class="btn btn-primary" (click)="addCustomer()">Add customer</div>
+<hr>
+
+<input type="text" class="form-control" [(ngModel)]="filter" placeholder="Search" [(ngModel)]="searchCustomer">
+<hr>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let c of customers | customersPipe:searchCustomer">
+    <span> <a routerLink="">{{c.name}}</a></span>
+  </li>
+
+</ul>
+<!--<wfm-customer *ngFor="let c of customers" [client]="c" ></wfm-customer>-->
+
+
