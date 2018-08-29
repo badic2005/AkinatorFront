@@ -1,0 +1,8 @@
+<h3>Add</h3>
+<hr>
+Name <input type="text" class="form-control" [(ngModel)]="customer.name">
+Inn<input type="text" class="form-control" [(ngModel)]="customer.inn">
+
+<hr>
+<a class="btn btn-primary" routerLink="/customers">Return</a>
+<button class="btn btn-primary" (click)="addCustomer()">Create</button>

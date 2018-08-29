@@ -1,14 +1,20 @@
 
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {CustomersComponent} from './system/customers/customers.component';
+import {CustomersComponent} from './customers/customers.component';
 import {LoginComponent} from './auth/login/login.component';
-import {AddCustomerComponent} from './system/add-customer/add-customer.component';
+import {AddCustomerComponent} from './customers/add-customer/add-customer.component';
+import {HomeComponent} from './home/home.component';
+import {CustomerComponent} from './customers/customer/customer.component';
+import {EditCustomerComponent} from './customers/edit-customer/edit-customer.component';
 
 const routes: Routes = [
-  {path: 'customers', component: CustomersComponent },
+
   {path: 'customers/add', component: AddCustomerComponent },
-  {path: '', component:  LoginComponent},
+  {path: 'customers/:id', component: CustomerComponent },
+  {path: 'customers/:id/edit', component: EditCustomerComponent },
+  {path: 'customers', component: CustomersComponent },
+  {path: '', component:  HomeComponent},
 ];
 // const routes: Routes = [
 //   {path: '', redirectTo: 'login', pathMatch: 'full'}

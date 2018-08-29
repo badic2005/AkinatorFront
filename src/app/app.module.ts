@@ -4,13 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {CustomersComponent} from './system/customers/customers.component';
-import {CustomerComponent} from './system/customer/customer.component';
-import {AddCustomerComponent} from './system/add-customer/add-customer.component';
+import {CustomersComponent} from './customers/customers.component';
+import {CustomerComponent} from './customers/customer/customer.component';
+import {AddCustomerComponent} from './customers/add-customer/add-customer.component';
 import {LoginComponent} from './auth/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import {CustomersFilterPipe} from './system/customers/customers-filter.pipe';
+import {CustomersFilterPipe} from './customers/customers-filter.pipe';
+import {CustomersService} from './service/customers.service';
+import { HomeComponent } from './home/home.component';
+import {EditCustomerComponent} from './customers/edit-customer/edit-customer.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +22,9 @@ import {CustomersFilterPipe} from './system/customers/customers-filter.pipe';
     CustomerComponent,
     AddCustomerComponent,
     LoginComponent,
-    CustomersFilterPipe
-    // AuthComponent
+    CustomersFilterPipe,
+    HomeComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import {CustomersFilterPipe} from './system/customers/customers-filter.pipe';
     HttpClientModule
     // SystemModule
   ],
-  providers: [],
+  providers: [CustomersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
