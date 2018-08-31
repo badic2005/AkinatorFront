@@ -1,3 +1,7 @@
+li:hover {
+  background-color: #f2f2f2; }
 
+.selected {
+  background-color: #f2f2f2; }
 
 /*# sourceMappingURL=customers.component.css.map */

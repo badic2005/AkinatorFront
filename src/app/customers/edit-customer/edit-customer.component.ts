@@ -2,8 +2,9 @@
 
 
 import {Component, OnInit} from '@angular/core';
-import {ICustomer, CustomersService, Customer} from '../../service/customers.service';
+import {CustomersService} from '../../service/customers.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Customer} from '../../shared/customer.model';
 
 @Component({
   selector: 'wfm-edit-customer',
@@ -12,7 +13,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 })
 export class EditCustomerComponent implements OnInit {
 
-  customer: ICustomer = new Customer();
+  customer: Customer = new Customer();
   id: string;
 
   constructor(
@@ -29,7 +30,7 @@ export class EditCustomerComponent implements OnInit {
 
         this.customersService
           .getCustomer(this.id)
-          .subscribe( (c: ICustomer) => {
+          .subscribe( (c: Customer) => {
             this.customer = c;
           });
       }
@@ -40,7 +41,7 @@ export class EditCustomerComponent implements OnInit {
     this.customersService
       .updateCustomer(this.customer)
       .subscribe( () => {
-        this.router.navigate(['customers']);
+        this.router.navigate(['customers'] );
       });
   }
 }

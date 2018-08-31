@@ -10,10 +10,10 @@ import {EditCustomerComponent} from './customers/edit-customer/edit-customer.com
 
 const routes: Routes = [
 
-  {path: 'customers/add', component: AddCustomerComponent },
-  {path: 'customers/:id', component: CustomerComponent },
-  {path: 'customers/:id/edit', component: EditCustomerComponent },
-  {path: 'customers', component: CustomersComponent },
+  {path: 'customers/add', component: AddCustomerComponent, pathMatch: 'full' },
+  {path: 'customers/:id', component: CustomerComponent, pathMatch: 'full'  },
+  {path: 'customers/:id/edit', component: EditCustomerComponent, pathMatch: 'full'  },
+  {path: 'customers', component: CustomersComponent, pathMatch: 'full'  },
   {path: '', component:  HomeComponent},
 ];
 // const routes: Routes = [

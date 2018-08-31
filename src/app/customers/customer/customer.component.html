@@ -1,12 +1,10 @@
-<h3>Details</h3>
+<a class="btn btn-primary" [routerLink]="['/customers',customer.id, 'edit']">Edit</a>
+<button class="btn btn-primary" (click)="deleteCustomer(customer.id)">Delete</button>
 <hr>
 <p>name: {{customer.name}}</p>
 <p>inn: {{customer.inn}}</p>
 <hr>
 
-<a class="btn btn-primary" routerLink="/customers">Return</a>
-<a class="btn btn-primary" [routerLink]="['/customers',customer.id, 'edit']">Edit</a>
-<button class="btn btn-primary" (click)="deleteCustomer(customer.id)">Delete</button>
 
 
 

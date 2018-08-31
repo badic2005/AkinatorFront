@@ -2,7 +2,8 @@
 
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Params, Router} from '@angular/router';
-import {Customer, CustomersService, ICustomer} from '../../service/customers.service';
+import {CustomersService} from '../../service/customers.service';
+import {Customer} from '../../shared/customer.model';
 
 @Component({
   selector: 'wfm-add-customer',
@@ -11,7 +12,7 @@ import {Customer, CustomersService, ICustomer} from '../../service/customers.ser
 })
 export class AddCustomerComponent implements OnInit {
 
-  customer: ICustomer = new Customer();
+  customer: Customer = new Customer();
   id: string;
 
   constructor(private router: Router,
@@ -23,7 +24,7 @@ export class AddCustomerComponent implements OnInit {
   addCustomer() {
     this.customersService
       .addCustomer(this.customer)
-      .subscribe( (customer: ICustomer) => {
+      .subscribe( (customer: Customer) => {
         this.router.navigate(['customers']);
       });
   }

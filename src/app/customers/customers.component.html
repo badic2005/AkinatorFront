@@ -2,16 +2,27 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <a class="btn btn-primary" [routerLink]="['/customers','add']">Add customer</a>
+    <div class="col-md-8 col-xs-8">
+      <button class="btn btn-primary" [routerLink]="['/customers','add']">Add customer</button>
       <p></p>
       <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Search" [(ngModel)]="searchCustomer">
       <hr>
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let c of customers | customersPipe:searchCustomer">
-          <span> <a [routerLink]="['/customers', c.id]">{{c.name}} ({{c.id}})</a></span>
+        <li class="list-group-item"
+            *ngFor="let c of customers | customersPipe:searchCustomer"
+            (click)="updateCurrentCustomer(c)"
+            [ngClass]="{'selected' : isSelected(c.id)}"
+        >
+          <span>{{c.name}} ({{c.id}})</span>
+          <!--<span> <a [routerLink]="['/customers', c.id]">{{c.name}} ({{c.id}})</a></span>-->
         </li>
       </ul>
+    </div>
+    <div class="col-md-4 col-xs-4">
+      <wfm-customer
+        [customer]="currentCustomer"
+        (onDeleteCustomer)="updateCustomerList()"
+      ></wfm-customer>
     </div>
   </div>
 </div>

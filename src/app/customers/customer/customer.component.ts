@@ -1,7 +1,8 @@
 
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {ICustomer, CustomersService, Customer} from '../../service/customers.service';
+import {Customer} from '../../shared/customer.model';
+import {CustomersService} from '../../service/customers.service';
 
 @Component({
   selector: 'wfm-customer',
@@ -10,9 +11,8 @@ import {ICustomer, CustomersService, Customer} from '../../service/customers.ser
 })
 export class CustomerComponent implements OnInit {
 
-  customer: ICustomer = new Customer();
-
-  id: string;
+  @Input() customer: Customer = new Customer();
+  @Output() onDeleteCustomer =  new EventEmitter();
 
   constructor(
               private router: Router,
@@ -20,25 +20,25 @@ export class CustomerComponent implements OnInit {
               private customersService: CustomersService) {}
 
   ngOnInit(): void {
-    this.route.params.
-        subscribe(
-        (params: Params) => {
-                this.id = params['id'];
-
-                this.customersService
-                  .getCustomer(this.id)
-                  .subscribe( (c: ICustomer) => {
-                    this.customer = c;
-                  });
-              }
-        );
+    console.log(this.customer);
+    // this.route.params.
+    //     subscribe(
+    //     (params: Params) => {
+    //             this.id = params['id'];
+    //
+    //             this.customersService
+    //               .getCustomer(this.id)
+    //               .subscribe( (c: Customer) => {
+    //                 this.customer = c;
+    //               });
+    //           }
+    //     );
   }
 
   deleteCustomer(id: string) {
     this.customersService.deleteCustomer(id)
       .subscribe(x => {
-        console.log(x);
-        this.router.navigate(['customers']);
+        this.onDeleteCustomer.emit();
       });
   }
 }
