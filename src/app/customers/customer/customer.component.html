@@ -1,8 +1,22 @@
-<a class="btn btn-primary" [routerLink]="['/customers',customer.id, 'edit']">Edit</a>
-<button class="btn btn-primary" (click)="deleteCustomer(customer.id)">Delete</button>
+<div class="btn-toolbar text-center">
+<a *ngIf="!customer.id" class="btn btn-primary btn disabled" [routerLink]="['/customers',customer.id, 'edit']">Edit</a>
+<a *ngIf="customer.id" class="btn btn-primary" [routerLink]="['/customers',customer.id, 'edit']">Edit</a>
+<button *ngIf="!customer.id" class="btn btn-primary btn disabled" (click)="deleteCustomer(customer.id)">Delete</button>
+<button *ngIf="customer.id" class="btn btn-primary" (click)="deleteCustomer(customer.id)">Delete</button>
+</div>
 <hr>
-<p>name: {{customer.name}}</p>
-<p>inn: {{customer.inn}}</p>
+<p>Name: {{customer.name}}</p>
+<p>INN: {{customer.inn}}</p>
+<p>Manager: {{customer.manager}}</p>
+<p>Manager Position: {{customer.position}}</p>
+<p>Phone: {{customer.phone}}</p>
+<p>Email: {{customer.email}}</p>
+<p>Client: {{customer.client}}</p>
+<p>Provider: {{customer.provider}}</p>
+<p>Order Source: {{customer.orderSource}}</p>
+<p>Address: {{customer.address}}</p>
+<p>Comment: {{customer.comment}}</p>
+
 <hr>
 
 

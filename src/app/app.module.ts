@@ -14,6 +14,7 @@ import {CustomersFilterPipe} from './customers/customers-filter.pipe';
 import {CustomersService} from './service/customers.service';
 import { HomeComponent } from './home/home.component';
 import {EditCustomerComponent} from './customers/edit-customer/edit-customer.component';
+import { FieldsCustomerComponent } from './customers/fields-customer/fields-customer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {EditCustomerComponent} from './customers/edit-customer/edit-customer.com
     LoginComponent,
     CustomersFilterPipe,
     HomeComponent,
-    EditCustomerComponent
+    EditCustomerComponent,
+    FieldsCustomerComponent
   ],
   imports: [
     BrowserModule,

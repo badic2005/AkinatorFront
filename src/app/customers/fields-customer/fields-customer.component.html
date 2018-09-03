@@ -1,0 +1,17 @@
+Name <input type="text" class="form-control" [(ngModel)]="customer.name">
+INN<input type="text" class="form-control" [(ngModel)]="customer.inn">
+Manager<input type="text" class="form-control" [(ngModel)]="customer.manager">
+Manager Position<input type="text" class="form-control" [(ngModel)]="customer.managerPosition">
+Phone<input type="text" class="form-control" [(ngModel)]="customer.phone">
+Email<input type="text" class="form-control" [(ngModel)]="customer.email">
+<div class="checkbox">
+  <label><input type="checkbox" class="form-check-input" [(ngModel)]="customer.client">Client</label>
+</div>
+<hr>
+<div class="checkbox">
+  <label><input type="checkbox" class="form-check-input" [(ngModel)]="customer.provider">Provider</label>
+</div>
+<hr>
+Order Source<input type="text" class="form-control" [(ngModel)]="customer.orderSource">
+Address<input type="text" class="form-control" [(ngModel)]="customer.address">
+Comment<textarea type="text" class="form-control" [(ngModel)]="customer.comment"></textarea>

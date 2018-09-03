@@ -1,7 +1,3 @@
-
-
-
-
 import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CustomersService} from '../service/customers.service';

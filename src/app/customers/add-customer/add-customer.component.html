@@ -1,8 +1,10 @@
 <h3>Add</h3>
 <hr>
-Name <input type="text" class="form-control" [(ngModel)]="customer.name">
-Inn<input type="text" class="form-control" [(ngModel)]="customer.inn">
+<wfm-fields-customer [currentCustomer]="customer"></wfm-fields-customer>
+
 
 <hr>
+<div class="btn-toolbar text-center">
 <a class="btn btn-primary" routerLink="/customers">Return</a>
 <button class="btn btn-primary" (click)="addCustomer()">Create</button>
+</div>
